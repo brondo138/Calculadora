@@ -1,7 +1,10 @@
+//definimos un array 
+let array = [];
+//valor mostrado en pantalla
+let valor;
+//definimos las teclas 
 const pantalla = document.getElementById('screen');
-
-const botonc = document.getElementById("btnc")
-
+const botonc = document.getElementById("btnc");
 const boton1 = document.getElementById('btn1');
 const boton2 = document.getElementById('btn2');
 const boton3 = document.getElementById('btn3');
@@ -15,8 +18,11 @@ const boton0 = document.getElementById('btn0');
 const botonMas = document.getElementById('btn+');
 const botonDel = document.getElementById('btnDel');
 
+//funcion para escribir en pantalla
 botonc.addEventListener('click', function() {
     pantalla.value = "";
+    console.log(array)
+    array = []
 });
 boton1.addEventListener('click', function() {
     pantalla.value += '1';
@@ -48,9 +54,14 @@ boton9.addEventListener('click', function() {
 boton0.addEventListener('click', function() {
     pantalla.value += '0';
 });
+//boton de suma
 botonMas.addEventListener('click', function() {
-    pantalla.value += '+';
+    if(pantalla.value !== ''){
+        array.push(pantalla.value);
+        console.log(array);
+        pantalla.value += '+';
+    }
 });
 botonDel.addEventListener('click', function() {
-    pantalla.value -= '1';
+    pantalla.value = pantalla.value.slice(0, -1);
 });
